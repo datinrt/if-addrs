@@ -6,6 +6,7 @@
 // modified, or distributed except according to those terms. Please review the Licences for the
 // specific language governing permissions and limitations relating to use of the SAFE Network
 // Software.
+#![cfg_attr(docsrs, feature(doc_auto_cfg))]
 #![cfg_attr(docsrs, feature(doc_cfg))]
 
 #[cfg(not(windows))]
@@ -27,7 +28,8 @@ mod posix;
     not(target_os = "netbsd"),
     not(target_os = "openbsd"),
     not(target_os = "illumos"),
-    not(target_os = "haiku")
+    not(target_os = "haiku"),
+    not(target_os = "nto")
 ))]
 mod posix_not_apple;
 mod sockaddr;
@@ -530,7 +532,8 @@ pub fn get_if_addrs() -> io::Result<Vec<Interface>> {
     target_os = "netbsd",
     target_os = "openbsd",
     target_os = "illumos",
-    target_os = "haiku"
+    target_os = "haiku",
+    target_os = "nto"
 )))]
 #[cfg_attr(
     docsrs,
@@ -636,7 +639,8 @@ mod if_change_notifier {
     target_os = "netbsd",
     target_os = "openbsd",
     target_os = "illumos",
-    target_os = "haiku"
+    target_os = "haiku",
+    target_os = "nto"
 )))]
 #[cfg_attr(
     docsrs,
